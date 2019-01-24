@@ -11,9 +11,20 @@ RUN apt-get update && \
       git \
       wget
 
+# Create a default user and home directory
+ENV NAME pyuser
+ENV HOME /home/$NAME
+RUN useradd -d $HOME -s /bin/bash -u 10000 -U -p $NAME $NAME && \
+    mkdir $HOME && \
+    addgroup $NAME staff && \
+    mkdir $HOME/.jupyter && \
+    mkdir $HOME/.cert
+
+COPY bashrc.sh $HOME/.bashrc
+
 # Clean up
 RUN apt-get -y autoremove && \
-    apt-get clean &
+    apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 CMD ["bash"]
