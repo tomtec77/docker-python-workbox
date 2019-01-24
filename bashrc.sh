@@ -123,7 +123,7 @@ bldgrn='\e[1;32m'
 bldblu='\e[1;34m'
 txtrst='\e[0m'
 print_before_the_prompt () {
-    printf "$bldylw[$bldgrn python@docker: $bldblu%s $bldylw] $txtrst" "${PWD/$HOME/$CUSTOM_PROMPT}"
+    printf "$bldylw[$bldgrn pyuser@docker: $bldblu%s $bldylw] $txtrst" "${PWD/$HOME/$CUSTOM_PROMPT}"
 }
 PROMPT_COMMAND=print_before_the_prompt
 PS1='~> '
@@ -133,3 +133,5 @@ export PATH=$HOME/miniconda3/bin:$PATH
 
 # Enable conda activate script
 . $HOME/miniconda3/etc/profile.d/conda.sh
+
+echo ""
