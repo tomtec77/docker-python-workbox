@@ -25,4 +25,6 @@ The notebook can be accessed at https://localhost:8888 (note that it's HTTPS).
 Because the certificates aren't produced by a trusted certificate provider known
 to the browser, we will see a message like
 ![Your connection is not private](images/connection_not_private.png)
-Click on 'Advanced', then on 'proceed to localhost (unsafe)' to continue.
+
+Click on 'Advanced', then on 'proceed to localhost (unsafe)' to continue (you
+only need to do this once).
