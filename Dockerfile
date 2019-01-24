@@ -22,10 +22,25 @@ RUN useradd -d $HOME -s /bin/bash -u 10000 -U -p $NAME $NAME && \
 
 COPY bashrc.sh $HOME/.bashrc
 
+RUN chown -R $NAME:$NAME $HOME
+
+USER $NAME
+WORKDIR $HOME
+
+# Install Miniconda3
+ENV CONDA_DOWNLOAD_URL https://repo.anaconda.com/miniconda
+ENV CONDA_INSTALLER Miniconda3-latest-Linux-x86_64.sh
+
+RUN wget --progress=bar:force $CONDA_DOWNLOAD_URL/$CONDA_INSTALLER && \
+    bash $CONDA_INSTALLER -b -p $HOME/miniconda3
+
 # Clean up
 RUN apt-get -y autoremove && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* &&
+    rm $CONDA_INSTALLER    
+
+EXPOSE 8888
 
 CMD ["bash"]
 
