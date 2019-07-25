@@ -1,7 +1,12 @@
 # docker-python-workbox
 Docker Ubuntu container with Python 3 (Miniconda).
 
-Run the container with:
+To build the image:
+``` bash
+sudo docker build . -t tomtec/python-workbox
+```
+
+Run a container with:
 ``` bash
 sudo docker run -it --rm --user pyuser -p 8888:8888 -v /your/shared/directory:/share tomtec/python-workbox
 ```
