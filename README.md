@@ -1,5 +1,5 @@
 # docker-python-workbox
-Docker Ubuntu container with Python 3 (Miniconda).
+Docker Ubuntu image with Python 3 (Miniconda).
 
 To build the image:
 ``` bash
