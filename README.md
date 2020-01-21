@@ -11,11 +11,11 @@ Run a container with:
 sudo docker run -it --rm --user pyuser -p 8888:8888 -v /your/shared/directory:/share tomtec/python-workbox
 ```
 
-Share a directory: to give ownership of the shared volume to user `pyuser` in the
-container, you need to do the following on the host machine. Create the directory
-to share, then change its ownership using the **numeric** user and group IDs to
-match those of the user in the container (which is 10000, as set in the 
-`Dockerfile`):
+Sharing a directory: to give ownership of the shared volume to user `pyuser` in 
+the container, you need to do the following on the host machine. Create the 
+directory to share, then change its ownership using the **numeric** user and 
+group IDs to match those of the user in the container (which is 10000, as set in
+the `Dockerfile`):
 ``` bash
 mkdir -p /your/shared/directory
 sudo chown -R 10000:10000 /your/shared/directory

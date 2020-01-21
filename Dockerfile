@@ -2,21 +2,15 @@ FROM ubuntu:bionic
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Update the base system
-COPY ./badproxy /etc/apt/apt.conf.d/99fixbadproxy
-RUN apt-get update && \
-    apt-get -y dist-upgrade && \
-    apt-get install -y --no-install-recommends --no-install-suggests \
-      apt-utils \
-      ca-certificates \
-      git \
-      vim \
-      wget
-
-# Clean up
-RUN apt-get -y autoremove && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+# Install tools
+RUN apt-get update && apt-get install -y \
+	--no-install-recommends --no-install-suggests \
+	apt-utils \
+	ca-certificates \
+	git \
+	vim \
+	wget \
+	&& rm -rf /var/lib/apt/lists/*
 
 # Create a default user and home directory
 ENV NAME pyuser
