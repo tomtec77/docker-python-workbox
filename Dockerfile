@@ -8,9 +8,17 @@ RUN apt-get update && apt-get install -y \
 	apt-utils \
 	ca-certificates \
 	git \
+	locales \
 	vim \
 	wget \
 	&& rm -rf /var/lib/apt/lists/*
+
+# Set the locale and encoding
+ENV LOCALE en_US.UTF-8
+RUN locale-gen $LOCALE
+
+ENV LANG="$LOCALE"
+ENV LC_ALL="$LOCALE"
 
 # Create a default user and home directory
 ENV NAME pyuser

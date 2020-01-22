@@ -116,22 +116,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Add a custom color prompt
-CUSTOM_PROMPT="~"
-bldylw='\e[1;33m'
-bldgrn='\e[1;32m'
-bldblu='\e[1;34m'
-txtrst='\e[0m'
-print_before_the_prompt () {
-    printf "$bldylw[$bldgrn pyuser@docker: $bldblu%s $bldylw] $txtrst" "${PWD/$HOME/$CUSTOM_PROMPT}"
-}
-PROMPT_COMMAND=print_before_the_prompt
-PS1='~> '
+# Add a custom prompt
+WHALE_ICON=$'\U1f433'
+PS1='\e[1;36m[ $NAME @ $WHALE_ICON : \w ] >\e[m '
 
 # Path to conda executables
 export PATH=$HOME/miniconda3/bin:$PATH
 
 # Enable conda activate script
 . $HOME/miniconda3/etc/profile.d/conda.sh
-
-echo ""
