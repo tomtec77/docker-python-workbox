@@ -19,6 +19,7 @@ RUN locale-gen $LOCALE
 
 ENV LANG="$LOCALE"
 ENV LC_ALL="$LOCALE"
+ENV LANGUAGE="en.UTF-8"
 
 # Create a default user and home directory
 ENV NAME pyuser
