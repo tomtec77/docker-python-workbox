@@ -124,4 +124,4 @@ PS1='\e[1;36m[ $NAME @ $WHALE_ICON : \w ] >\e[m '
 export PATH=$HOME/miniconda3/bin:$PATH
 
 # Enable conda activate script
-. $HOME/miniconda3/etc/profile.d/conda.sh
+source $HOME/miniconda3/etc/profile.d/conda.sh
