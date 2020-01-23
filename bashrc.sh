@@ -118,7 +118,7 @@ fi
 
 # Add a custom prompt
 WHALE_ICON=$'\U1f433'
-PS1='\e[1;36m[ $NAME @ $WHALE_ICON : \w ] >\e[m '
+PS1='\[\033[1;36m\][ $NAME @ $WHALE_ICON : \w ] >\[\033[0m\] '
 
 # Path to conda executables
 export PATH=$HOME/miniconda3/bin:$PATH
